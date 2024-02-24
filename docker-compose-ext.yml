@@ -8,6 +8,6 @@ services:
   embulk-orders_detail:
     image: embulk
     container_name: order_detail_ext
-    command: ["java", "-jar", "/embulk/embulk.jar", "run", "/input/order_detail.yml"]
+    command: ["java", "-jar", "/embulk/embulk.jar", "run", "/input/order_details.yml"]
     
       
