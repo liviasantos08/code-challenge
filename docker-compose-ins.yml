@@ -1,0 +1,11 @@
+version: '3'
+services:
+  orders-ins:
+    image: embulk
+    container_name: orders_ex
+    command: ["java", "-jar", "/embulk/embulk.jar", "run", "/output/orders-out.yml"]
+
+  orders_detail-ins:
+    image: embulk
+    container_name: order_detail_ex
+    command: ["java", "-jar", "/embulk/embulk.jar", "run", "/output/order_details-out.yml"]

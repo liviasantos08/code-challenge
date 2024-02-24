@@ -16,6 +16,7 @@ docker pull postgres
 # embulk
 docker build -t embulk .
 
+#os arquivos yml estão no diretório files, separado em input e output.
 
 # Banco de dados
 docker-compose -f docker-compose-db.yml up -d
@@ -27,7 +28,7 @@ docker-compose -f docker-compose-ext.yml up -d
 docker-compose -f docker-compose-ins.yml up -d
 
 
-#Lembre-se de garantir que os containers de banco de dados estejam em execução antes dos containers Embulk.
+#Lembre-se de garantir que os containers de banco de dados estejam em execução durante a execução dos containers Embulk.
 
 
 #Listar containers
@@ -40,7 +41,9 @@ docker start <container_id ou container_name>
 # docker start embulk-orders_ext
 
 ## Extração e Inserção de Dados
-
+#Execute os containers de extração no banco de dados.
+docker start embulk-orders
+docker start orders_detail
 
 # Copiar arquivos do container de extração para o host local
 docker cp <id-container>:/data/postgres/{table}/{table000.00.csv} /path/to/dados
@@ -72,4 +75,9 @@ Por isso foi improvisado com path localhost.
 
 Para formato de arquivo csv, entendo que é um formato mais fácil de se trabalha além de ser prático. 
 
-Demorei para aprender a instalar o embulk, até que encontrei uma solução com docker. Em cima disso, aprendir a fazer as config.yml embulk e utilizei outros plugins para testes até chegar ao resultado atual. O tempo perdido dificultou para configurar o airflow e extrair os dados de todas as tabelas, além da minha máquina possuir uma configuração basica para o docker que atrapalhou para um funcionamente pleno, inclusive para uma extração de todas as tabelas. Em virtude disso, apenas fiz o necessário do resultado final e as tabelas que realmente importava para este teste.
+Demorei para aprender a instalar o embulk, até que encontrei uma solução com docker. Em cima disso, aprendir a fazer as config.yml embulk e utilizei outros plugins para testes até chegar ao resultado atual. O tempo perdido dificultou para configurar o airflow para criação de dags e agendar a execução do pipeline, além da minha máquina possuir uma configuração basica para o docker que atrapalhou para um funcionamente pleno, inclusive para uma extração de todas as tabelas. Em virtude disso, apenas fiz o necessário do resultado final e as tabelas que realmente importava para este teste.
+
+Finalizo ressaltando que este projeto foi bastante desafiador e enriquecedor. Apesar das adversidades encontradas, acredito que conseguir levar o processo adiante, buscando demonstrar meus conhecimentos na área. Infelizmente, não foi possivel realizar a integração com o Airflow e a eficiência do repositório de dados não atingiu o nível desejado.
+
+Destaco, ainda, a importância dos novos conhecimentos adquiridos ao longo do projeto e entendo que preciso reforçar o apredizado, em virtude isso estou comprometido em aprimorar minhas habilidades ainda mais. 
+

@@ -1,0 +1,18 @@
+in:
+  type: postgresql
+  host: db
+  port: 5432
+  user: usario
+  password: senha
+  database: north
+  table: categories
+  select: category_id, category_name, description
+out:
+  type: file
+  path_prefix: "/app/data/postgres/categories/1/categories"
+  file_ext: csv
+  delimiter: ';'
+  formatter:
+     type: csv
+ 
+    

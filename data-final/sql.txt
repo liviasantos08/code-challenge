@@ -1,0 +1,17 @@
+CREATE TABLE order_details (
+    order_id smallint REFERENCES orders(order_id),
+	product_id smallint REFERENCES products(product_id),
+	unit_price real,
+	quantity int,
+	discount real
+);
+
+ embulk-orders-out:
+    image: embulk
+    container_name: order-exit
+    command: ["java", "-jar", "/embulk/embulk.jar", "run", "/output/orders-out.yml"]
+  
+  embulk-orders-detail:
+    image: embulk
+    container_name: order-detail
+    command: ["java", "-jar", "/embulk/embulk.jar", "run", "/output/orders_details-out.yml"]

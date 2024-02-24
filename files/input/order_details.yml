@@ -1,0 +1,31 @@
+in:
+  type: file
+  path_prefix: /data/postgres/order_details/order_details.csv
+  parser:
+    type: csv
+    delimiter: ','
+    quote: '"'
+    escape: '"'
+    columns:
+      - {name: order_id, type: long}
+      - {name: product_id, type: long}
+      - {name: unit_price, type: double}
+      - {name: quantity, type: double}
+      - {name: discount, type: double}
+out:
+  type: file
+  path_prefix: /data/postgres/orders/orders_details-2.csv
+  file_ext: csv
+  quote: '"'
+  escape: '"'
+  formatter:
+     type: csv
+     delimiter: ','
+     column_options:
+        order_id: {type: 'smallint'}
+        product_id: {type: 'smallint'}
+        unit_price: {type: 'real'}
+        quantity: {type: 'int'}
+        discount: {type: 'real'}
+  
+ 

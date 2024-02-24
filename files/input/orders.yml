@@ -1,0 +1,18 @@
+in:
+  type: postgresql
+  host: db
+  port: 5432
+  user: user
+  password: senha
+  database: entrada
+  table: orders
+out:
+  type: file
+  path_prefix: /data/postgres/orders/orders
+  file_ext: csv
+  quote: '"'
+  escape: '"'
+  formatter:
+     type: csv
+     delimiter: ','
+    

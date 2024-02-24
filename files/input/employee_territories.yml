@@ -1,0 +1,18 @@
+in:
+  type: postgresql
+  host: db
+  port: 5432
+  user: user
+  password: senha
+  database: entrada
+  table: employee_territories
+out:
+  type: file
+  path_prefix: /data/postgres/employee_territories/employee_territories
+  file_ext: csv
+  delimiter: ','
+  quote: '"'
+  escape: '"'
+  formatter:
+     type: csv
+    

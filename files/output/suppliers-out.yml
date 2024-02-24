@@ -1,0 +1,19 @@
+in:
+  type: postgresql
+  host: db
+  port: 5432
+  user: usario
+  password: senha
+  database: north
+  table: categories
+  select: category_id, category_name, description
+out:
+  type: s3
+  path_prefix: data/postgres/categories/$CURRENT_DATE/categories
+  file_ext: .csv
+  bucket: balde-indy
+  access_key_id: AKIAXJXSGVHLURKNMDN5
+  secret_access_key: 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
+  formatter:
+       type: csv
+    

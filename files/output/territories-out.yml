@@ -1,0 +1,25 @@
+in:
+  type: file
+  path_prefix: /dados/postgres/territories.csv
+  parser:
+    type: csv
+    delimiter: ','
+    columns:
+      - {name: id, type: long}
+      - {name: nome, type: string}
+      - {name: idade, type: long}
+      - {name: email, type: string}
+out:
+  type: postgresql
+  host: db2
+  port: 5432
+  user: usaria
+  password: senha
+  database: north
+  mode: insert
+  table: clientes
+  column_options:
+     id: {type: 'int'}
+     nome: {type: 'varchar'}
+     idade: {type: 'int'}
+     email: {type: 'varchar'}

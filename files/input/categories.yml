@@ -1,0 +1,21 @@
+in:
+  type: postgresql
+  host: db
+  port: 5432
+  user: user
+  password: senha
+  database: entrada
+  table: categories
+out:
+  type: file
+  path_prefix: "/data/postgres/categories/categories"
+  file_ext: csv
+  delimiter: ','
+  quote: '"'
+  escape: '"'
+  formatter:
+     type: csv
+  column_options:
+    picture: {type: string}
+ 
+    

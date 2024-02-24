@@ -1,0 +1,18 @@
+in:
+  type: postgresql
+  host: db
+  port: 5432
+  user: user
+  password: senha
+  database: entrada
+  table: customer_demographics
+out:
+  type: file
+  path_prefix: /data/postgres/customer_demographics/customer_demographics
+  file_ext: csv
+  delimiter: ','
+  quote: '"'
+  escape: '"'
+  formatter:
+     type: csv
+    

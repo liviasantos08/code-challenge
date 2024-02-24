@@ -1,0 +1,45 @@
+in:
+  type: file
+  path_prefix: /data/postgres/orders/orders.csv
+  parser:
+    type: csv
+    delimiter: ','
+    columns:
+      - {name: order_id, type: long}
+      - {name: customer_id, type: string}
+      - {name: employee_id, type: long}
+      - {name: order_date, type: timestamp, format: '%Y-%m-%d'}
+      - {name: required_date, type: timestamp, format: '%Y-%m-%d'}
+      - {name: shipped_date, type: timestamp, format: '%Y-%m-%d'}
+      - {name: ship_via, type: long}
+      - {name: freight, type: double}
+      - {name: ship_name, type: string}
+      - {name: ship_address, type: string}
+      - {name: ship_city, type: string}
+      - {name: ship_region, type: string}
+      - {name: ship_postal_code, type: string}
+      - {name: ship_country, type: string}
+out:
+  type: postgresql
+  host: db2
+  port: 5432
+  user: usaria
+  password: senha
+  database: north
+  mode: insert
+  table: orders
+  column_options:
+     order_id: {type: 'smallint'}
+     customer_id: {type: 'varchar'}
+     employee_id: {type: 'smallint'}
+     order_date: {type: 'date'}
+     required_date: {type: 'date'}
+     shipped_date: {type: 'date'}
+     ship_via: {type: 'smallint'}
+     freight: {type: 'real'}
+     ship_name: {type: 'varchar'}
+     ship_address: {type: 'varchar'}
+     ship_city: {type: 'varchar'}
+     ship_region: {type: 'varchar'}
+     ship_postal_code: {type: 'varchar'}
+     ship_country: {type: 'varchar'}

@@ -1,0 +1,27 @@
+in:
+  type: file
+  path_prefix: /data/postgres/order_details/order_details.csv
+  parser:
+    type: csv
+    delimiter: ','
+    columns:
+      - {name: order_id, type: long}
+      - {name: product_id, type: long}
+      - {name: unit_price, type: double}
+      - {name: quantity, type: double}
+      - {name: discount, type: double}
+out:
+  type: postgresql
+  host: db2
+  port: 5432
+  user: usaria
+  password: senha
+  database: north
+  mode: insert
+  table: orders_detail
+  column_options:
+     order_id: {type: 'smallint'}
+     product_id: {type: 'smallint'}
+     unit_price: {type: 'real'}
+     quantity: {type: 'int'}
+     discount: {type: 'real'}
