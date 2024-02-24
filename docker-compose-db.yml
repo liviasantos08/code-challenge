@@ -2,7 +2,7 @@ version: '3'
 services:
   db:
     image: postgres:12
-    container_name: db_entrada
+    container_name: db_inicio
     environment:
       POSTGRES_DB: entrada
       POSTGRES_USER: user
@@ -14,7 +14,7 @@ services:
       - "5433:5432"
   db2:
     image: postgres:12
-    container_name: db_saida
+    container_name: db_final
     environment:
       POSTGRES_DB: north
       POSTGRES_USER: usaria
